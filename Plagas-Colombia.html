@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plagas en Colombia - Impacto y Manejo</title>
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Encabezado */
+        header {
+            background: linear-gradient(to right, #2e7d32, #4caf50);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('https://source.unsplash.com/random/1200x600/?colombia,agriculture') no-repeat center center/cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #4caf50;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #388e3c;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Secciones */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #2e7d32;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #4caf50;
+            margin: 10px auto;
+        }
+
+        /* Plagas principales */
+        .plagas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .plaga-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .plaga-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .plaga-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .plaga-content {
+            padding: 20px;
+        }
+
+        .plaga-content h3 {
+            margin-bottom: 10px;
+            color: #2e7d32;
+        }
+
+        /* Impacto económico */
+        .impacto-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .impacto-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .impacto-img {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .impacto-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Control de plagas */
+        .control-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .method {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .method:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .method i {
+            font-size: 2.5rem;
+            color: #4caf50;
+            margin-bottom: 15px;
+        }
+
+        .method h3 {
+            margin-bottom: 15px;
+            color: #2e7d32;
+        }
+
+        /* Footer */
+        footer {
+            background: #2e7d32;
+            color: white;
+            padding: 40px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: #4caf50;
+        }
+
+        .footer-section p, .footer-section a {
+            margin-bottom: 10px;
+            display: block;
+            color: #e0e0e0;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #e0e0e0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                height: 400px;
+            }
+            
+            section {
+                padding: 40px 0;
+            }
+            
+            .plagas-grid, .control-methods {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Plagas Colombia</div>
+                <nav>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#plagas">Plagas Principales</a></li>
+                        <li><a href="#impacto">Impacto Económico</a></li>
+                        <li><a href="#control">Control</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Plagas Agrícolas en Colombia</h1>
+            <p>Conoce las principales plagas que afectan la agricultura colombiana y las estrategias para su manejo sostenible</p>
+            <a href="#plagas" class="btn">Descubrir más</a>
+        </div>
+    </section>
+
+    <!-- Plagas Principales -->
+    <section id="plagas">
+        <div class="container">
+            <h2 class="section-title">Plagas Principales en Colombia</h2>
+            <div class="plagas-grid">
+                <!-- Plaga 1 -->
+                <div class="plaga-card">
+                    <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRNQCM8wqMKfC88m1u9dp8vVnBz948cNsLF29A4J_WSClQsgmFLo3bRZX5XRDCkLaRJZvTrd5o3QQMlFQkTw-FO_IIF5rj9V9G_IDUT5mI" alt="Broca del café" class="plaga-img">
+                    <div class="plaga-content">
+                        <h3>Broca del Café</h3>
+                        <p>La broca (Hypothenemus hampei) es considerada la plaga más devastadora para los cultivos de café en Colombia, afectando directamente los granos y reduciendo la calidad del producto.</p>
+                    </div>
+                </div>
+                
+                <!-- Plaga 2 -->
+                <div class="plaga-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShby7DSM5SHtM5lBMl-3IYetZlTQLgPDk_OA&s" alt="Sigatoka del banano" class="plaga-img">
+                    <div class="plaga-content">
+                        <h3>Sigatoka del Banano</h3>
+                        <p>Enfermedad fúngica causada por Mycosphaerella fijiensis que afecta las hojas del banano, reduciendo la capacidad fotosintética y la producción de frutos.</p>
+                    </div>
+                </div>
+                
+                <!-- Plaga 3 -->
+                <div class="plaga-card">
+                    <img src="https://blog.cambiagro.com/wp-content/uploads/2022/05/Featured-cogollerocepa.jpg" alt="Gusano cogollero" class="plaga-img">
+                    <div class="plaga-content">
+                        <h3>Gusano Cogollero</h3>
+                        <p>Spodoptera frugiperda es una plaga polífaga que afecta principalmente cultivos de maíz, arroz y sorgo, causando daños significativos en el follaje y las mazorcas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impacto Económico -->
+    <section id="impacto" style="background-color: #f0f7f0;">
+        <div class="container">
+            <h2 class="section-title">Impacto Económico</h2>
+            <div class="impacto-content">
+                <div class="impacto-text">
+                    <p>Las plagas agrícolas representan una amenaza significativa para la economía colombiana, especialmente considerando que el sector agropecuario contribuye con aproximadamente el 6.2% del PIB nacional.</p>
+                    <p>Se estima que las pérdidas anuales por plagas y enfermedades en cultivos clave como café, banano, arroz y palma de aceite superan los $500 mil millones de pesos colombianos.</p>
+                    <p>Estas pérdidas no solo afectan a los productores, sino que tienen un impacto en toda la cadena de valor, incluyendo empleo, exportaciones y seguridad alimentaria del país.</p>
+                </div>
+                <div class="impacto-img">
+                    <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://storage.googleapis.com/msgsndr/21aHlBA7inPNqra8KdGz/media/66c6392f19452f74f4a9b463.webp" alt="Impacto económico de plagas">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Control de Plagas -->
+    <section id="control">
+        <div class="container">
+            <h2 class="section-title">Métodos de Control</h2>
+            <div class="control-methods">
+                <!-- Método 1 -->
+                <div class="method">
+                    <i>🌿</i>
+                    <h3>Control Biológico</h3>
+                    <p>Uso de enemigos naturales como parasitoides, depredadores y microorganismos para regular poblaciones de plagas de manera sostenible.</p>
+                </div>
+                
+                <!-- Método 2 -->
+                <div class="method">
+                    <i>🧪</i>
+                    <h3>Manejo Integrado</h3>
+                    <p>Combinación de diferentes técnicas de control (cultural, biológico, químico) para mantener las plagas por debajo de niveles económicos de daño.</p>
+                </div>
+                
+                <!-- Método 3 -->
+                <div class="method">
+                    <i>🔬</i>
+                    <h3>Control Genético</h3>
+                    <p>Desarrollo de variedades resistentes a plagas mediante mejoramiento genético convencional y biotecnología.</p>
+                </div>
+                
+                <!-- Método 4 -->
+                <div class="method">
+                    <i>📊</i>
+                    <h3>Monitoreo y Alertas</h3>
+                    <p>Sistemas de vigilancia y alerta temprana para detectar brotes de plagas y tomar medidas preventivas oportunas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Plagas Colombia</h3>
+                    <p>Información actualizada sobre las principales plagas agrícolas en Colombia y estrategias para su manejo sostenible.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <a href="#inicio">Inicio</a>
+                    <a href="#plagas">Plagas Principales</a>
+                    <a href="#impacto">Impacto Económico</a>
+                    <a href="#control">Control de Plagas</a>
+                </div>
+
+    
+        </div>
+    </footer>
+</body>
+</html>
